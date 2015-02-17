@@ -1,10 +1,14 @@
 Package: nat.amira
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Interface Between NeuroAnatomy Toolbox and Amira Visualisation Software
 Version: 0.1
-Date: 2015-02-16
-Author: Gregory Jefferis
-Maintainer: "Gregory Jefferis <jefferis@gmail.com> [aut, cre]"
-Description: More about what it does (maybe more than one line)
+Author: Gregory Jefferis [aut, cre]
+Maintainer: Gregory Jefferis <jefferis@gmail.com>
+Description: nat.amira provides functionality to bridge the visualisation
+  capabilities of the NeuroAnatomy Toolbox (nat) package with the Amira 3D
+  visualisation software (http://www.fei.com/software/amira-3d-for-life-sciences/).
+  The package does not directly require Amira, but of course its functionality
+  will be of limited interest to those without access to Amira.
+Depends: nat
 License: GPL-3
 LazyData: TRUE
