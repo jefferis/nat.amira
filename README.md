@@ -1,17 +1,9 @@
 # nat.amira
+Simple R package for interaction with Amira
 
 ## Installation
-Currently there isn't a released version on [CRAN](http://cran.r-project.org/).
-
-### Released versions
-Released versions are available from our lab repository:
-
-```r
-install.packages("nat.amira",repos='http://jefferislab.org/R',type='source')
-```
-
-### Bleeding Edge
-You can use the **devtools** package to install the development version:
+Currently there isn't a released version on [CRAN](http://cran.r-project.org/), 
+but you can use the **devtools** package to install the development version:
 
 ```r
 if (!require("devtools")) install.packages("devtools")
