@@ -4,14 +4,34 @@
 \alias{write_neurons_for_amira}
 \title{write neurons out in a directory hierarchy suitable for Amira}
 \usage{
-write_neurons_for_amira(nl, rdir)
+write_neurons_for_amira(nl, rdir, score = 4, ...)
 }
 \arguments{
-\item{nl}{a neuron list containing projection neurons}
+\item{nl}{a neuron list containing traced neurons}
 
 \item{rdir}{The root directory of the project}
+
+\item{score}{Default integer score for each neuron, or a function to be
+applied to the path of each output neuron file which returns integer
+scores. See details.}
+
+\item{...}{Additional arguments for write.neurons}
 }
 \description{
-write neurons out in a directory hierarchy suitable for Amira
+Note that this function only works for neuron (rather than dotprops) objects
+and is limited to a single level directory hierarchy to organise the neurons.
+}
+\details{
+The \code{score} of a neuron was traditionally used to limit which neurons
+were displayed in Amira by recording a user-defined assessment of how well
+registered each brain was on a 1 to 5 scale. It may also be used to define a
+display hierarchy such that no more than n neurons should be displayed.
+}
+\examples{
+td=tempdir()
+write_neurons_for_amira(Cell07PNs, td, subdir=Glomerulus)
+}
+\seealso{
+\code{\link{write.neurons}}
 }
 

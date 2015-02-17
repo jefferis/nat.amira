@@ -10,5 +10,6 @@ Description: nat.amira provides functionality to bridge the visualisation
   The package does not directly require Amira, but of course its functionality
   will be of limited interest to those without access to Amira.
 Depends: nat
+Imports: nat.utils
 License: GPL-3
 LazyData: TRUE
