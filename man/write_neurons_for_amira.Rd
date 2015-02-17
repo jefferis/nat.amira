@@ -17,6 +17,9 @@ scores. See details.}
 
 \item{...}{Additional arguments for write.neurons}
 }
+\value{
+Path to the master script object to open in Amira
+}
 \description{
 Note that this function only works for neuron (rather than dotprops) objects
 and is limited to a single level directory hierarchy to organise the neurons.
@@ -29,7 +32,10 @@ display hierarchy such that no more than n neurons should be displayed.
 }
 \examples{
 td=tempdir()
-write_neurons_for_amira(Cell07PNs, td, subdir=Glomerulus)
+master_script=write_neurons_for_amira(Cell07PNs, td, subdir=Glomerulus)
+\dontrun{
+system(paste("open", shQuote(master_script)))
+}
 }
 \seealso{
 \code{\link{write.neurons}}

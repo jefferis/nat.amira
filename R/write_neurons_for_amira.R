@@ -17,9 +17,13 @@
 #' @import nat
 #' @importFrom nat.utils abs2rel
 #' @export
+#' @return Path to the master script object to open in Amira
 #' @examples
 #' td=tempdir()
-#' write_neurons_for_amira(Cell07PNs, td, subdir=Glomerulus)
+#' master_script=write_neurons_for_amira(Cell07PNs, td, subdir=Glomerulus)
+#' \dontrun{
+#' system(paste("open", shQuote(master_script)))
+#' }
 write_neurons_for_amira<-function(nl, rdir, score=4, ...){
   tryCatch({
     # make rdir
@@ -29,7 +33,7 @@ write_neurons_for_amira<-function(nl, rdir, score=4, ...){
     amiradir=system.file("amira", package = 'nat.amira')
     amira_scro=dir(amiradir, pattern = "\\.scro$", full.names = TRUE)
     file.copy(amira_scro, rdir)
-
+    master_object=file.path(rdir, "masterObject.scro")
     # write neurons
     unlink(file.path(rdir, 'neurons'), recursive=TRUE)
     message("Writing neurons!")
@@ -59,4 +63,5 @@ write_neurons_for_amira<-function(nl, rdir, score=4, ...){
     message("Failed to write files! Detailed error:\n")
     e
   })
+  invisible(master_object)
 }
