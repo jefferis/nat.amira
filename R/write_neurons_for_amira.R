@@ -22,7 +22,7 @@
 #' td=tempdir()
 #' master_script=write_neurons_for_amira(Cell07PNs, td, subdir=Glomerulus)
 #' \dontrun{
-#' system(paste("open", shQuote(master_script)))
+#' open_amira(master_script)
 #' }
 write_neurons_for_amira<-function(nl, rdir, score=4, ...){
   tryCatch({
