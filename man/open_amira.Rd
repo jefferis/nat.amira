@@ -12,7 +12,7 @@ open_amira(x = NULL, amira = getOption("nat.amira.amira", "Amira"))
 \item{amira}{Path to desired Amira version (see details)}
 }
 \description{
-Simple opens Amira if no file is specified. Presently only works on MacOS X.
+Simply opens Amira if no file is specified. Presently only works on MacOS X.
 }
 \details{
 Uses the package option otions('nat.amira.amira') to specify the path to

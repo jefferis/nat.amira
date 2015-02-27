@@ -1,6 +1,6 @@
 #' Open a file in Amira
 #'
-#' Simple opens Amira if no file is specified. Presently only works on MacOS X.
+#' Simply opens Amira if no file is specified. Presently only works on MacOS X.
 #'
 #' Uses the package option otions('nat.amira.amira') to specify the path to
 #' Amira when this is set.
