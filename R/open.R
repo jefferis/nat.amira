@@ -48,6 +48,7 @@ open_stack_viewer<-function(stackdir, filenames=NULL){
     write_keyfile(filenames)
   } else stackdir
 
+  # FIXME what if there is already a StackViewer.hx script?
   objname="StackViewer.hx"
   ll=c(paste("load ", tclQuote(script)),
        paste(objname, " StackDir setFilename", tclQuote(stackdir)),
