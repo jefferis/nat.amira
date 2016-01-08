@@ -26,3 +26,23 @@ open_amira<-function(x=NULL, amira=getOption('nat.amira.amira', 'Amira')) {
          "https://github.com/jefferis/nat.amira!")
   }
 }
+
+
+#' Write a simple Amira script
+#'
+#' @param lines Tcl code (not including Amira's header line)
+#' @param file Output file (defaults to a temporary location). Should normally
+#'   have suffix \code{'.hx'}.
+#'
+#' @return The path to the output file (invisibly)
+#' @export
+#'
+#' @examples
+#' \donttest{
+#' open_amira(opensc<-write_amira_script("echo Hello!"))
+#' }
+write_amira_script<-function(lines, file=tempfile(fileext = '.hx')){
+  cat("# Amira Script\n", file = file)
+  cat(c(lines, "\n"), file = file, append = TRUE)
+  invisible(file)
+}
