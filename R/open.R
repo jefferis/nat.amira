@@ -34,6 +34,7 @@ tclQuote=function(string) shQuote(string, type='cmd')
 #' @param stackdir Path to the directory containing stacks
 #' @param filenames Character vector specifying restricted set of stacks to
 #'   view.
+#' @param template Short name of template brain (to show surface)
 #' @export
 #' @examples
 #' \dontrun{
@@ -41,8 +42,10 @@ tclQuote=function(string) shQuote(string, type='cmd')
 #' library(vfbr)
 #' open_stack_viewer(getOption("vfbr.stack.downloads"))
 #' }
-open_stack_viewer<-function(stackdir, filenames=NULL){
+open_stack_viewer<-function(stackdir=".", filenames=NULL,
+                            template=c("JFRC2", "FCWB", "IS2")){
   script=system.file("amira", "StackViewer.hx", package = 'nat.amira')
+  template=match.arg(template)
 
   keyfile = if(!is.null(filenames)){
     write_keyfile(filenames)
@@ -53,6 +56,7 @@ open_stack_viewer<-function(stackdir, filenames=NULL){
   ll=c(paste("load ", tclQuote(script)),
        paste(objname, " StackDir setFilename", tclQuote(stackdir)),
        paste(objname, " KeyListFile setFilename", tclQuote(keyfile)),
+       paste(objname, " RefBrain setValue", tclQuote(template)),
        paste(objname, "fire"))
 
   opensc<-write_amira_script(ll)

@@ -4,12 +4,16 @@
 \alias{open_stack_viewer}
 \title{Open our Amira Stack viewer script to review a set of files}
 \usage{
-open_stack_viewer(stackdir, filenames = NULL)
+open_stack_viewer(stackdir = ".", filenames = NULL, template = c("JFRC2",
+  "FCWB", "IS2"))
 }
 \arguments{
 \item{stackdir}{Path to the directory containing stacks}
 
-\item{filenames}{Character vector specifying restricted set of stacks to view.}
+\item{filenames}{Character vector specifying restricted set of stacks to
+view.}
+
+\item{template}{Short name of template brain (to show surface)}
 }
 \description{
 Open our Amira Stack viewer script to review a set of files
