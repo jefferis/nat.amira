@@ -13,8 +13,8 @@ $this proc constructor { } {
     $this newPortFilename StackDir
     # Load directory mode
     $this StackDir setMode 3 
-    $this StackDir setValue "/Users/jefferis/projects/ChiangReanalysis/ChiangReg/Registration.GHT2"
     
+    $this StackDir setValue ""
     $this newPortFilename KeyListFile
     set imgdir [$this StackDir getValue]
     $this KeyListFile setValue "$imgdir/"
