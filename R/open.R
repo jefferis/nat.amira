@@ -43,6 +43,6 @@ open_amira<-function(x=NULL, amira=getOption('nat.amira.amira', 'Amira')) {
 #' }
 write_amira_script<-function(lines, file=tempfile(fileext = '.hx')){
   cat("# Amira Script\n", file = file)
-  cat(c(lines, "\n"), file = file, append = TRUE)
+  cat(lines, sep="\n", file = file, append = TRUE)
   invisible(file)
 }
