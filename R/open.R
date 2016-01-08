@@ -27,6 +27,43 @@ open_amira<-function(x=NULL, amira=getOption('nat.amira.amira', 'Amira')) {
   }
 }
 
+tclQuote=function(string) shQuote(string, type='cmd')
+
+#' Open our Amira Stack viewer script to review a set of files
+#'
+#' @param stackdir Path to the directory containing stacks
+#' @param filenames Character vector specifying restricted set of stacks to
+#'   view.
+#' @export
+#' @examples
+#' \dontrun{
+#' # vfbr library can download registered stacks from VFB
+#' library(vfbr)
+#' open_stack_viewer(getOption("vfbr.stack.downloads"))
+#' }
+open_stack_viewer<-function(stackdir, filenames=NULL){
+  script=system.file("amira", "StackViewer.hx", package = 'nat.amira')
+
+  keyfile = if(!is.null(filenames)){
+    write_keyfile(filenames)
+  } else stackdir
+
+  objname="StackViewer.hx"
+  ll=c(paste("load ", tclQuote(script)),
+       paste(objname, " StackDir setFilename", tclQuote(stackdir)),
+       paste(objname, " KeyListFile setFilename", tclQuote(keyfile)),
+       paste(objname, "fire"))
+
+  opensc<-write_amira_script(ll)
+  open_amira(opensc)
+  invisible(opensc)
+}
+
+write_keyfile<-function(keys, file=tempfile(pattern='keyfile', fileext = '.txt')){
+  writeLines(keys, con = file)
+  invisible(file)
+}
+
 
 #' Write a simple Amira script
 #'
