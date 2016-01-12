@@ -46,6 +46,7 @@ open_stack_viewer<-function(stackdir=".", filenames=NULL,
                             template=c("JFRC2", "FCWB", "IS2")){
   script=system.file("amira", "StackViewer.hx", package = 'nat.amira')
   template=match.arg(template)
+  stackdir=path.expand(stackdir)
 
   keyfile = if(!is.null(filenames)){
     write_keyfile(filenames)
