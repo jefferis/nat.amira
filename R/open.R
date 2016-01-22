@@ -7,7 +7,9 @@
 #'
 #' @param x A file to open (optional)
 #' @param amira Path to desired Amira version (see details)
+#' @param ... Additional arguments passed to methods
 #' @export
+#' @rdname open_amira
 #' @examples
 #' \dontrun{
 #' ## Open Amira
@@ -17,7 +19,7 @@
 #' open_amira("myscript.scro")
 #' open_amira("mynetwork.hx")
 #' }
-open_amira<-function(x=NULL, amira=getOption('nat.amira.amira', 'Amira')) {
+open_amira.default<-function(x=NULL, ..., amira=getOption('nat.amira.amira', 'Amira')) {
   ismac=grepl("darwin", R.version$os, fixed = TRUE)
   if(ismac) {
     system(paste("open -a", amira, shQuote(x)))
@@ -25,6 +27,26 @@ open_amira<-function(x=NULL, amira=getOption('nat.amira.amira', 'Amira')) {
     stop("open_amira is presently only defined on macosx. Patches welcome at ",
          "https://github.com/jefferis/nat.amira!")
   }
+  x
+}
+
+#' @export
+#' @rdname open_amira
+open_amira<-function(x=NULL, ...) UseMethod("open_amira")
+
+#' @export
+#' @rdname open_amira
+open_amira.neuron<-function(x, ...) {
+  tf=tempfile(pattern='open_amira.neuron', fileext = '.am')
+  write.neuron(x, file = tf, format = 'hxlineset')
+  open_amira(tf)
+}
+#' @export
+#' @rdname open_amira
+open_amira.neuronlist<-function(x, ...){
+  td<-tempfile(pattern='open_amira.neuronlist')
+  master_script=write_neurons_for_amira(x, td, ...)
+  open_amira(master_script)
 }
 
 tclQuote=function(string) shQuote(string, type='cmd')
@@ -43,7 +65,7 @@ tclQuote=function(string) shQuote(string, type='cmd')
 #' open_stack_viewer(getOption("vfbr.stack.downloads"))
 #' }
 open_stack_viewer<-function(stackdir=".", filenames=NULL,
-                            template=c("JFRC2", "FCWB", "IS2")){
+                            template=c("JFRC2", "FCWB", "IS2", "T1")){
   script=system.file("amira", "StackViewer.hx", package = 'nat.amira')
   template=match.arg(template)
   stackdir=path.expand(stackdir)
