@@ -5,7 +5,7 @@
 \title{Open our Amira Stack viewer script to review a set of files}
 \usage{
 open_stack_viewer(stackdir = ".", filenames = NULL, template = c("JFRC2",
-  "FCWB", "IS2"))
+  "FCWB", "IS2", "T1"))
 }
 \arguments{
 \item{stackdir}{Path to the directory containing stacks}
