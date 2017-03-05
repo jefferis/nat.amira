@@ -2,7 +2,9 @@
 % Please edit documentation in R/open.R
 \name{open_amira.default}
 \alias{open_amira}
+\alias{open_amira.data.frame}
 \alias{open_amira.default}
+\alias{open_amira.matrix}
 \alias{open_amira.neuron}
 \alias{open_amira.neuronlist}
 \title{Open a file in Amira}
@@ -15,6 +17,10 @@ open_amira(x = NULL, ...)
 \method{open_amira}{neuron}(x, ...)
 
 \method{open_amira}{neuronlist}(x, ...)
+
+\method{open_amira}{matrix}(x, ...)
+
+\method{open_amira}{data.frame}(x, ...)
 }
 \arguments{
 \item{x}{A file to open (optional)}
@@ -25,6 +31,9 @@ open_amira(x = NULL, ...)
 }
 \description{
 Simply opens Amira if no file is specified. Presently only works on MacOS X.
+
+\code{open_amira.matrix} and \code{open_amira.data.frame} open a
+  set of 3D points as Amira landmark
 }
 \details{
 Uses the package option otions('nat.amira.amira') to specify the path to

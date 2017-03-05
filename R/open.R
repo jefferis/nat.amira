@@ -49,6 +49,21 @@ open_amira.neuronlist<-function(x, ...){
   open_amira(master_script)
 }
 
+#' @description \code{open_amira.matrix} and \code{open_amira.data.frame} open a
+#'   set of 3D points as Amira landmark
+#' @export
+#' @rdname open_amira
+open_amira.matrix<-function(x, ...) {
+  xyz=xyzmatrix(x)
+  tf=tempfile(pattern='open_amira.matrix', fileext = '.am')
+  write.landmarks(xyz, file = tf, format = 'amiralandmarks', ...)
+  open_amira(tf)
+}
+
+#' @export
+#' @rdname open_amira
+open_amira.data.frame <- open_amira.matrix
+
 tclQuote=function(string) shQuote(string, type='cmd')
 
 #' Open our Amira Stack viewer script to review a set of files
