@@ -23,4 +23,3 @@ Write a simple Amira script
 open_amira(opensc<-write_amira_script("echo Hello!"))
 }
 }
-

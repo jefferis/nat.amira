@@ -25,4 +25,3 @@ library(vfbr)
 open_stack_viewer(getOption("vfbr.stack.downloads"))
 }
 }
-

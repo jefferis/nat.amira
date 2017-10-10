@@ -40,4 +40,3 @@ open_amira(master_script)
 \seealso{
 \code{\link{write.neurons}}
 }
-
