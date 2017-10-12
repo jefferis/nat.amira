@@ -2,6 +2,7 @@
 
 S3method(open_amira,data.frame)
 S3method(open_amira,default)
+S3method(open_amira,hxsurf)
 S3method(open_amira,matrix)
 S3method(open_amira,neuron)
 S3method(open_amira,neuronlist)

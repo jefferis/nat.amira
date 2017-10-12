@@ -7,6 +7,7 @@
 \alias{open_amira.neuronlist}
 \alias{open_amira.matrix}
 \alias{open_amira.data.frame}
+\alias{open_amira.hxsurf}
 \title{Open a file in Amira}
 \usage{
 \method{open_amira}{default}(x = NULL, ...,
@@ -21,6 +22,8 @@ open_amira(x = NULL, ...)
 \method{open_amira}{matrix}(x, ...)
 
 \method{open_amira}{data.frame}(x, ...)
+
+\method{open_amira}{hxsurf}(x, ...)
 }
 \arguments{
 \item{x}{A file to open (optional)}
@@ -34,6 +37,8 @@ Simply opens Amira if no file is specified. Presently only works on MacOS X.
 
 \code{open_amira.matrix} and \code{open_amira.data.frame} open a
   set of 3D points as Amira landmark
+
+\code{open_amirahxsurf} open a 3D surface mesh in Amira
 }
 \details{
 Uses the package option otions('nat.amira.amira') to specify the path to
