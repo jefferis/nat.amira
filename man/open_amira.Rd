@@ -38,7 +38,7 @@ Simply opens Amira if no file is specified. Presently only works on MacOS X.
 \code{open_amira.matrix} and \code{open_amira.data.frame} open a
   set of 3D points as Amira landmark
 
-\code{open_amirahxsurf} open a 3D surface mesh in Amira
+\code{open_amira.hxsurf} open a 3D surface mesh in Amira
 }
 \details{
 Uses the package option otions('nat.amira.amira') to specify the path to

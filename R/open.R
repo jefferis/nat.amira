@@ -64,7 +64,7 @@ open_amira.matrix<-function(x, ...) {
 #' @rdname open_amira
 open_amira.data.frame <- open_amira.matrix
 
-#' @description \code{open_amirahxsurf} open a 3D surface mesh in Amira
+#' @description \code{open_amira.hxsurf} open a 3D surface mesh in Amira
 #' @export
 #' @rdname open_amira
 open_amira.hxsurf<-function(x, ...) {
