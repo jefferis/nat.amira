@@ -90,7 +90,7 @@ tclQuote=function(string) shQuote(string, type='cmd')
 #' }
 open_stack_viewer<-function(stackdir=".", filenames=NULL,
                             template=c("JFRC2", "FCWB", "IS2", "T1")){
-  script=system.file("amira", "StackViewer.hx", package = 'nat.amira')
+  script=system.file("amira", "StackViewer.scro", package = 'nat.amira')
   template=match.arg(template)
   stackdir=path.expand(stackdir)
 
@@ -99,7 +99,7 @@ open_stack_viewer<-function(stackdir=".", filenames=NULL,
   } else stackdir
 
   # FIXME what if there is already a StackViewer.hx script?
-  objname="StackViewer.hx"
+  objname=basename(script)
   ll=c(paste("load ", tclQuote(script)),
        paste(objname, " StackDir setFilename", tclQuote(stackdir)),
        paste(objname, " KeyListFile setFilename", tclQuote(keyfile)),
