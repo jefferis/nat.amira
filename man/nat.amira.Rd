@@ -6,5 +6,21 @@
 \alias{nat.amira-package}
 \title{A simple interface beween Amira and the neuronatomy toolbox (nat)}
 \description{
-A simple interface beween Amira and the neuronatomy toolbox (nat)
+The main function is \code{\link{open_amira}} which will open a variety of R
+objects in the current running version of Amira. This works by writing a file
+to disk in a suitable AmiraMesh file format and then opening it. The
+following data types are supported:
+}
+\details{
+\itemize{
+
+\item points
+
+\item neurons (as single objects)
+
+\item \code{\link[nat]{neuronlist}} objects containing many neurons
+
+\item surface objects
+
+}
 }
