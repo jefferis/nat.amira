@@ -69,7 +69,7 @@ open_amira.data.frame <- open_amira.matrix
 #' @rdname open_amira
 open_amira.hxsurf<-function(x, ...) {
   tf=tempfile(pattern='open_amira.matrix', fileext = '.surf')
-  write.hxsurf(x, file = tf)
+  write.hxsurf(x, filename = tf)
   open_amira(tf)
 }
 
