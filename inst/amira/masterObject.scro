@@ -150,14 +150,18 @@ $this proc updateLafObjectsThreshold {} {
 $this proc updateLafObjectsColor {} {
 	foreach glom [$this getVar glomActive] {
 		if {[exists $glom]} {
-			#if{[$this red isNew]} 
-			$glom red setValue [$this red getValue]
-			#if{[$this green isNew]} 
-			$glom green setValue [$this green getValue]
-			#if{[$this blue isNew]} 
-			$glom blue setValue [$this blue getValue]
-			#if{[$this width isNew]} 
-			$glom width setValue [$this width getValue]
+			if { [$this red isNew] } {
+				$glom red setValue [$this red getValue]
+			} 
+			if { [$this green isNew] } {
+				$glom green setValue [$this green getValue]
+			} 
+			if { [$this blue isNew] } {
+				$glom blue setValue [$this blue getValue]
+			} 
+			if { [$this width isNew] } {
+				$glom width setValue [$this width getValue]
+			} 
 			$glom fire
 		}
 	} 
