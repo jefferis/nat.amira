@@ -9,7 +9,7 @@ $this proc constructor { } {
 	echo "Script directory is: $myScriptDir"
 	$this newPortFilename filename
 	$this filename setValue ${myScriptDir}/lists/1_listfile.txt
-    $this newPortButtonList Action 5
+		$this newPortButtonList Action 5
 	$this Action setLabel Action:
 	$this Action setLabel 0 LoadAll
 	$this Action setLabel 1 Remove
@@ -52,15 +52,15 @@ $this proc constructor { } {
 
 $this proc compute { } {
 	
-	if { [ $this Action isNew  ] && [$this Action getValue]==0 } {
+	if { [ $this Action isNew ] && [$this Action getValue]==0 } {
 		$this makeFileListFromDir
 		$this loadFiles
 		$this updateNumDisplayedObjects
 	}
-	if { [ $this Action isNew  ] && [$this Action getValue]==2} {
+	if { [ $this Action isNew ] && [$this Action getValue]==2} {
 		#$this myupdate
 	}
-	if { [ $this Action isNew  ] && [$this Action getValue]==3} {		
+	if { [ $this Action isNew ] && [$this Action getValue]==3} {
 		if { [ $this Action getLabel 3]=="ShowAll" } {
 			$this showLineViews 1
 		} elseif {[ $this Action getLabel 3]=="HideAll" } {
@@ -68,7 +68,7 @@ $this proc compute { } {
 		}
 		$this updateNumDisplayedObjects
 	}
-	if { [ $this Action isNew  ] && [$this Action getValue]==4} {
+	if { [ $this Action isNew ] && [$this Action getValue]==4} {
 		if { [ $this Action getLabel 4]=="ShowIcons" } {
 			$this showIcons 1
 		} elseif {[ $this Action getLabel 4]=="HideIcons" } {
@@ -134,7 +134,7 @@ $this proc updateNumDisplayedObjects {} {
 		}
 	}
 	$this setVar numDisplayedObjects $numDisplayedObjects
-}	
+} 
 
 
 
