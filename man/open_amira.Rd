@@ -8,7 +8,7 @@
 \alias{open_amira.matrix}
 \alias{open_amira.data.frame}
 \alias{open_amira.hxsurf}
-\title{Open a file in Amira}
+\title{Open a file or R object in Amira}
 \usage{
 \method{open_amira}{default}(x = NULL, ...,
   amira = getOption("nat.amira.amira", "Amira"))
@@ -26,23 +26,36 @@ open_amira(x = NULL, ...)
 \method{open_amira}{hxsurf}(x, ...)
 }
 \arguments{
-\item{x}{A file to open (optional)}
+\item{x}{A file or object to open (optional)}
 
 \item{...}{Additional arguments passed to methods}
 
 \item{amira}{Path to desired Amira version (see details)}
 }
 \description{
-Simply opens Amira if no file is specified. Presently only works on MacOS X.
+Open a file or R object in Amira
+
+\code{open_amira.neuronlist} and \code{open_amira.neuron} open
+  R \code{\link{neuronlist}} or \code{\link{neuron}} objects.
 
 \code{open_amira.matrix} and \code{open_amira.data.frame} open a
   set of 3D points as Amira landmark
 
-\code{open_amira.hxsurf} open a 3D surface mesh in Amira
+\code{open_amira.hxsurf} opens a 3D surface mesh in Amira
 }
 \details{
-Uses the package option otions('nat.amira.amira') to specify the path to
-Amira when this is set.
+When \code{x} is an R object, then a suitable file is written in a
+  temporary location on disk. For \code{\link{neuronlist}} objects, a script
+  object will also be generated in Amira that can be used to customise the
+  display of the neurons (toggle groups, colour, line width). See
+  \code{\link{write_neurons_for_amira}} and eventually
+  \code{\link{write.neurons}} for additional arguments you can set here.
+
+  Simply opens Amira if no file is specified. Presently only works on MacOS
+  X.
+
+  Uses the package option otions('nat.amira.amira') to specify the path to
+  Amira when this is set.
 }
 \examples{
 \dontrun{

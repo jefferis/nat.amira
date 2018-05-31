@@ -15,7 +15,8 @@ write_neurons_for_amira(nl, rdir, score = 4, ...)
 applied to the path of each output neuron file which returns integer
 scores. See details.}
 
-\item{...}{Additional arguments for write.neurons}
+\item{...}{Additional arguments for \code{\link{write.neurons}} and
+eventually \code{\link{write.neuron}}}
 }
 \value{
 Path to the master script object to open in Amira
@@ -38,5 +39,5 @@ open_amira(master_script)
 }
 }
 \seealso{
-\code{\link{write.neurons}}
+\code{\link{write.neurons}}, \code{\link{write.neuron}}
 }

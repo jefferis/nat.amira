@@ -1,11 +1,19 @@
-#' Open a file in Amira
+#' Open a file or R object in Amira
 #'
-#' Simply opens Amira if no file is specified. Presently only works on MacOS X.
+#' @details When \code{x} is an R object, then a suitable file is written in a
+#'   temporary location on disk. For \code{\link{neuronlist}} objects, a script
+#'   object will also be generated in Amira that can be used to customise the
+#'   display of the neurons (toggle groups, colour, line width). See
+#'   \code{\link{write_neurons_for_amira}} and eventually
+#'   \code{\link{write.neurons}} for additional arguments you can set here.
 #'
-#' Uses the package option otions('nat.amira.amira') to specify the path to
-#' Amira when this is set.
+#'   Simply opens Amira if no file is specified. Presently only works on MacOS
+#'   X.
 #'
-#' @param x A file to open (optional)
+#'   Uses the package option otions('nat.amira.amira') to specify the path to
+#'   Amira when this is set.
+#'
+#' @param x A file or object to open (optional)
 #' @param amira Path to desired Amira version (see details)
 #' @param ... Additional arguments passed to methods
 #' @export
@@ -46,6 +54,9 @@ open_amira.neuron<-function(x, ...) {
   write.neuron(x, file = tf, format = 'hxlineset')
   open_amira(tf)
 }
+
+#' @description \code{open_amira.neuronlist} and \code{open_amira.neuron} open
+#'   R \code{\link{neuronlist}} or \code{\link{neuron}} objects.
 #' @export
 #' @rdname open_amira
 open_amira.neuronlist<-function(x, ...){
@@ -69,7 +80,7 @@ open_amira.matrix<-function(x, ...) {
 #' @rdname open_amira
 open_amira.data.frame <- open_amira.matrix
 
-#' @description \code{open_amira.hxsurf} open a 3D surface mesh in Amira
+#' @description \code{open_amira.hxsurf} opens a 3D surface mesh in Amira
 #' @export
 #' @rdname open_amira
 open_amira.hxsurf<-function(x, ...) {

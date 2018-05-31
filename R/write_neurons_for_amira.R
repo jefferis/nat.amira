@@ -12,8 +12,9 @@
 #' @param score Default integer score for each neuron, or a function to be
 #'   applied to the path of each output neuron file which returns integer
 #'   scores. See details.
-#' @param ... Additional arguments for write.neurons
-#' @seealso \code{\link{write.neurons}}
+#' @param ... Additional arguments for \code{\link{write.neurons}} and
+#'   eventually \code{\link{write.neuron}}
+#' @seealso \code{\link{write.neurons}}, \code{\link{write.neuron}}
 #' @import nat
 #' @importFrom nat.utils abs2rel
 #' @export
