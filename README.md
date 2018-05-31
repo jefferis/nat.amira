@@ -1,4 +1,5 @@
 [![Travis build status](https://travis-ci.org/jefferis/nat.amira.svg?branch=master)](https://travis-ci.org/jefferis/nat.amira)
+[![Docs](https://img.shields.io/badge/docs-100%25-brightgreen.svg)](http://jefferis.github.io/nat.amira/reference/)
 
 # nat.amira
 Simple R package for interaction with [Amira](https://www.fei.com/software/amira-for-life-sciences/)
