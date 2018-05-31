@@ -2,8 +2,8 @@ Package: nat.amira
 Type: Package
 Title: Interface Between NeuroAnatomy Toolbox and Amira Visualisation Software
 Version: 0.2
-Author: Gregory Jefferis [aut, cre]
-Maintainer: Gregory Jefferis <jefferis@gmail.com>
+Authors@R: person("Gregory","Jefferis", email="jefferis@gmail.com", 
+    role=c("aut", "cre"), comment = c(ORCID = "0000-0002-0587-9355"))
 Description: nat.amira provides functionality to bridge the visualisation
     capabilities of the NeuroAnatomy Toolbox (nat) package with the Amira 3D
     visualisation software (http://www.fei.com/software/amira-3d-for-life-sciences/).
