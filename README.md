@@ -1,7 +1,11 @@
 [![Travis build status](https://travis-ci.org/jefferis/nat.amira.svg?branch=master)](https://travis-ci.org/jefferis/nat.amira)
 
 # nat.amira
-Simple R package for interaction with Amira
+Simple R package for interaction with [Amira](https://www.fei.com/software/amira-for-life-sciences/)
+3D visualisation software originally developed by [Zuse Institute Berlin ](http://www.zib.de/software/amira).
+
+The main functionality is to allow neuron and surface objects in R to be opened
+in Amira for 3D visualisation and rendering.
 
 ## Installation
 Currently there isn't a released version on [CRAN](http://cran.r-project.org/), 
