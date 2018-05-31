@@ -1,0 +1,12 @@
+reference:
+- title: Package Overview
+  desc: ~
+  contents:
+  - '`nat.amira`'
+- title: Functions
+  desc: ~
+  contents:
+  - '`open_amira.default`'
+  - '`open_stack_viewer`'
+  - '`write_neurons_for_amira`'
+  - '`write_amira_script`'
