@@ -10,14 +10,19 @@
 #' @param ... Additional arguments passed to methods
 #' @export
 #' @rdname open_amira
+#' @seealso \code{\link{write_neurons_for_amira}}
 #' @examples
 #' \dontrun{
 #' ## Open Amira
 #' open_amira()
 #'
-#' ##
+#' ## Load some scripts
 #' open_amira("myscript.scro")
 #' open_amira("mynetwork.hx")
+#'
+#' # Load some neurons and make checkboxes to turn on/off and colour by glomerulus
+#' # nb ... is passed to write_neurons_for_amira in this case
+#' open_amira(Cell07PNs, subdir=Glomerulus)
 #' }
 open_amira.default<-function(x=NULL, ..., amira=getOption('nat.amira.amira', 'Amira')) {
   ismac=grepl("darwin", R.version$os, fixed = TRUE)
