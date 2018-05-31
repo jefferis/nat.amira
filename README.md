@@ -1,3 +1,5 @@
+[![Travis build status](https://travis-ci.org/jefferis/nat.amira.svg?branch=master)](https://travis-ci.org/jefferis/nat.amira)
+
 # nat.amira
 Simple R package for interaction with Amira
 
