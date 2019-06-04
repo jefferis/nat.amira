@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • nat.amira</title>
+<title>Utility functions to locate Amira application — amira_app_path • nat.amira</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,7 +30,12 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Utility functions to locate Amira application — amira_app_path" />
+
+<meta property="og:description" content="amira_app_path returns the path to the Amira application
+amira_start_path returns the current version of Amira
+amira_start_path returns the path to the Amira startup script" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -47,7 +52,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -97,90 +102,50 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Utility functions to locate Amira application</h1>
+    <small class="dont-index">Source: <a href='https://github.com/jefferis/nat.amira/blob/master/R/amirabin.R'><code>R/amirabin.R</code></a></small>
+    <div class="hidden name"><code>amira_app_path.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p><code>amira_app_path</code> returns the path to the Amira application</p>
+<p><code>amira_start_path</code> returns the current version of Amira</p>
+<p><code>amira_start_path</code> returns the path to the Amira startup script</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>amira_app_path</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-package-overview" class="hasAnchor"><a href="#section-package-overview" class="anchor"></a>Package Overview</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="nat.amira-package.html">nat.amira-package</a></code> </p>
-        </td>
-        <td><p>A simple interface beween Amira and the neuronatomy toolbox (nat)</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-functions" class="hasAnchor"><a href="#section-functions" class="anchor"></a>Functions</h2>
-          <p class="section-desc"><p>Main functions for end users</p></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="open_amira.html">open_amira()</a></code> </p>
-        </td>
-        <td><p>Open a file or R object in Amira</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="open_stack_viewer.html">open_stack_viewer()</a></code> </p>
-        </td>
-        <td><p>Open our Amira Stack viewer script to review a set of files</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="write_neurons_for_amira.html">write_neurons_for_amira()</a></code> </p>
-        </td>
-        <td><p>write neurons out in a directory hierarchy suitable for Amira</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-support-functions" class="hasAnchor"><a href="#section-support-functions" class="anchor"></a>Support functions</h2>
-          <p class="section-desc"><p>Principally intended for developer use</p></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="amira_app_path.html">amira_app_path()</a></code> <code><a href="amira_app_path.html">amira_version()</a></code> <code><a href="amira_app_path.html">amira_start_path()</a></code> </p>
-        </td>
-        <td><p>Utility functions to locate Amira application</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="write_amira_script.html">write_amira_script()</a></code> </p>
-        </td>
-        <td><p>Write a simple Amira script</p></td>
-      </tr>
-    </tbody>
+<span class='fu'>amira_version</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/options'>getOption</a></span>(<span class='st'>"nat.amira.amira"</span>))
+
+<span class='fu'>amira_start_path</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>path</th>
+      <td><p>The path to the Amira application (defaults to the value of
+<code>options('nat.amira.amira'))</code> or (on MacOS X) tries to find the
+application.</p></td>
+    </tr>
     </table>
-  </div>
+    
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>amira_app_path</span>()</div><div class='output co'>#&gt; [1] "/Applications/Amira-6.7.0/Amira.app"</div><div class='input'><span class='fu'>amira_start_path</span>()</div><div class='output co'>#&gt; [1] "/Applications/Amira-6.7.0/bin/start"</div><div class='input'><span class='fu'>amira_version</span>()</div><div class='output co'>#&gt; [1] ‘6.7.0’</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-package-overview">Package Overview</a></li>
-      <li><a href="#section-functions">Functions</a></li>
-      <li><a href="#section-support-functions">Support functions</a></li>
+      <li><a href="#arguments">Arguments</a></li>
+            
+      <li><a href="#examples">Examples</a></li>
     </ul>
+
   </div>
 </div>
 

@@ -2,11 +2,15 @@ reference:
 - title: Package Overview
   desc: ~
   contents:
-  - '`nat.amira`'
+  - '`nat.amira-package`'
 - title: Functions
-  desc: ~
+  desc: Main functions for end users
   contents:
   - '`open_amira.default`'
   - '`open_stack_viewer`'
   - '`write_neurons_for_amira`'
+- title: Support functions
+  desc: Principally intended for developer use
+  contents:
+  - '`amira_app_path`'
   - '`write_amira_script`'
