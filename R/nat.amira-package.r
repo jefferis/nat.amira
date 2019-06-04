@@ -17,6 +17,14 @@
 #'
 #' }
 #'
-#' @name nat.amira
-#' @docType package
-NULL
+#' Package options:
+#'
+#' #' \itemize{
+#'
+#' \item nat.amira.amira The path to the Amira application (see
+#' \code{\link{amira_app_path}} and \code{\link{open_amira}})
+#'
+#' }
+#'
+#' @keywords internal
+"_PACKAGE"
