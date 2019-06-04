@@ -11,7 +11,7 @@
 \title{Open a file or R object in Amira}
 \usage{
 \method{open_amira}{default}(x = NULL, ...,
-  amira = getOption("nat.amira.amira", "Amira"))
+  amira = getOption("nat.amira.amira", "Amira"), Verbose = FALSE)
 
 open_amira(x = NULL, ...)
 
@@ -31,10 +31,12 @@ open_amira(x = NULL, ...)
 \item{...}{Additional arguments passed to methods}
 
 \item{amira}{Path to desired Amira version (see details)}
+
+\item{Verbose}{Whether or not to show the command line output from
+communicating with Amira (default=\code{FALSE}, setting \code{TRUE} may
+help to debug connections)}
 }
 \description{
-Open a file or R object in Amira
-
 \code{open_amira.neuronlist} and \code{open_amira.neuron} open
   R \code{\link{neuronlist}} or \code{\link{neuron}} objects.
 

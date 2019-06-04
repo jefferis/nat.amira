@@ -16,6 +16,9 @@
 #' @param x A file or object to open (optional)
 #' @param amira Path to desired Amira version (see details)
 #' @param ... Additional arguments passed to methods
+#' @param Verbose Whether or not to show the command line output from
+#'   communicating with Amira (default=\code{FALSE}, setting \code{TRUE} may
+#'   help to debug connections)
 #' @export
 #' @rdname open_amira
 #' @seealso \code{\link{write_neurons_for_amira}}
@@ -32,14 +35,31 @@
 #' # nb ... is passed to write_neurons_for_amira in this case
 #' open_amira(Cell07PNs, subdir=Glomerulus)
 #' }
-open_amira.default<-function(x=NULL, ..., amira=getOption('nat.amira.amira', 'Amira')) {
-  ismac=grepl("darwin", R.version$os, fixed = TRUE)
-  if(ismac) {
-    system(paste("open -a", amira, shQuote(x)))
-  } else {
+open_amira.default<-function(x=NULL, ..., amira=getOption('nat.amira.amira', 'Amira'), Verbose=FALSE) {
+  if(!ismac())
     stop("open_amira is presently only defined on macosx. Patches welcome at ",
-         "https://github.com/jefferis/nat.amira!")
+         "https://github.com/jefferis/nat.amira")
+  # FIXME not sure which is actually the minimum version for change of behaviour
+  if(amira_version()<'6.5.0'){
+    cmd=paste("open -a", amira, shQuote(x))
+    system(cmd)
+  } else {
+    # NB $HOSTNAME is not the same as $(hostname)
+    cmd=sprintf("%s -cmd \"load \\\"%s\\\"\" -port 7175 -host $(hostname)",
+                shQuote(amira_start_path()),
+                x)
+    if(Verbose)
+      message(cmd)
+    res=system(cmd, ignore.stdout = !Verbose, ignore.stderr = !Verbose)
+    if (res > 0)
+      stop(
+        "Error calling Amira.\n",
+        "Amira.app must be running and you must tell it to listen for external\n",
+        "commands by executing the following in the Console (once per session):\n",
+        '  app -listen'
+      )
   }
+
   x
 }
 
