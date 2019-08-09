@@ -14,18 +14,32 @@ amira_app_path <- function(path = NULL) {
   op = getOption('nat.amira.amira')
   if (is.null(path)) {
     if (is.null(op)) {
-      if (!ismac())
+      if (ismac()){
+        ff = dir("/Applications",
+                 pattern = "^Amira-[0-9.]+",
+                 full.names = T)
+        path <- file.path(rev(ff)[1], 'Amira.app')
+
+      } else if(islinux()){
+        ff = dir("/usr/local/Amira",
+                 pattern = "[0-9.]+",
+                 full.names = TRUE,
+                 include.dirs = TRUE
+                )
+        path <- file.path(rev(ff)[1], 'bin')
+      } else {
+        stop("I don't know how to start Amira on this platform: ", R.version$os,
+             "\nPatches welcome at github.com/jefferis/nat.amira!")
+      }
+
+      if (length(path))
+        options(nat.amira.amira = path)
+      else {
         stop(
           "You must specify path to Amira manually via ",
           "options(nat.amira.amira='/path/to/amira/')"
         )
-
-      ff = dir("/Applications",
-               pattern = "^Amira-[0-9.]+",
-               full.names = T)
-      path <- file.path(rev(ff)[1], 'Amira.app')
-      if (length(path))
-        options(nat.amira.amira = path)
+      }
     } else {
       path <- op
     }
@@ -54,8 +68,12 @@ default_amira.mac <- function() {
 ismac <- function()
   grepl("darwin", R.version$os, fixed = TRUE)
 
+islinux <- function()
+  grepl("linux", R.version$os, fixed = TRUE)
+
 .amira_version <- function(path=getOption('nat.amira.amira')) {
-  ver=sub("Amira-", "", basename(dirname(amira_app_path(path))))
+  dir=dirname(amira_app_path(path))
+  ver=sub("Amira-", "", basename(dir))
   nver <- numeric_version(ver)
   nver
 }
