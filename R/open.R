@@ -36,8 +36,9 @@
 #' open_amira(Cell07PNs, subdir=Glomerulus)
 #' }
 open_amira.default<-function(x=NULL, ..., amira=getOption('nat.amira.amira', 'Amira'), Verbose=FALSE) {
-  if(!ismac())
-    stop("open_amira is presently only defined on macosx. Patches welcome at ",
+  if(is.null(x)) x=""
+  if(!ismac() && !islinux())
+    stop("open_amira is presently only defined on macosx and linux. Patches welcome at ",
          "https://github.com/jefferis/nat.amira")
   # FIXME not sure which is actually the minimum version for change of behaviour
   if(amira_version()<'6.5.0'){
